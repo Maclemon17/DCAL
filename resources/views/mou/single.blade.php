@@ -73,9 +73,7 @@
                                     </ul>
                                 </div>
                                 
-                                {{-- <div class="float-right share">
-                                    <a href="#"><i class="">Created: </i>{{ date('M Y', strtotime($post->created_at)) }}</a>
-                                </div> --}}
+                                
                                 
                                 <div class="float-right">
                                     <a href="{{ url('/download', $post->file) }}" class="btn btn-success">Download File</a>
@@ -84,20 +82,6 @@
                             
                         </article><!-- End blog entry -->
 
-                        {{-- <div class="blog-author clearfix">
-                            <img src="assets/img/blog/blog-author.jpg" class="rounded-circle float-left" alt="">
-                            <h4>DCAL</h4>
-                            <div class="social-links">
-                                <a href="https://twitters.com/#"><i class="icofont-twitter"></i></a>
-                                <a href="https://facebook.com/#"><i class="icofont-facebook"></i></a>
-                                <a href="https://instagram.com/#"><i class="icofont-instagram"></i></a>
-                            </div>
-                            <p>
-                                Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium. Quas
-                                repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium ut unde
-                                voluptas.
-                            </p>
-                        </div><!-- End blog author bio --> --}}
 
                     </div><!-- End blog entries list -->
 
