@@ -9,7 +9,7 @@ use App\Post;
 class MoUController extends Controller
 {
     public function getIndex() {
-        $posts = Post::paginate(5);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
 
         $recents = Post::latest()->take(3)->get();
         

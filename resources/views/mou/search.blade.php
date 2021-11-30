@@ -14,7 +14,6 @@
             <ol>
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="{{ route('mou') }}">MoU</a></li>
-                {{-- <li>{{ $post->docNum }}</li> --}}
             </ol>
             <h2>Search results</h2>
 

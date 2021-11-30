@@ -20,6 +20,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('posts', 'PostController');
+
 Route::get('memo', 'MoUController@getIndex')->name('mou');
 Route::get('memo/{id}', 'MoUController@getSingle')->name('mou.single')/*-> where('docNum', '[\w\d\-\_]+') */;
 Route::get('search', 'MoUController@search')->name('search');

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('navBtn')
-    <a href="{{ route('mou')}}" class="get-started-btn scrollto">Back</a>
+    <a href="{{ route('mou') }}" class="get-started-btn scrollto">Back</a>
 @endsection
 
 @section('content')
@@ -30,10 +30,6 @@
 
                         <article class="entry">
 
-                            {{-- <div class="entry-img">
-                                    <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                                </div> --}}
-
                             <h2 class="entry-title">
                                 <a href="blog-single.html">{{ $post->OrgName }}</a>
                             </h2>
@@ -43,10 +39,7 @@
                                     <li class="d-flex align-items-center"><i class="text-danger">Document Number:</i> <a
                                             href="#">{{ $post->docNum }}</a>
                                     </li>
-                                    {{-- <li class=" lign-items-center"><i class="icofont-clock-time text-danger"></i> <a
-                                            href="#"><time
-                                                datetime="2020-01-01">{{ $post->ExpDate }}</time></a>
-                                    </li> --}}
+
                                     <li class="d-flex align-items-center"><i class="text-danger">MoU Document:</i> <a
                                             href="#">{{ $post->file }}</a>
                                     </li>
@@ -58,31 +51,34 @@
                                 <p> {{ $post->keywords }}</p>
 
                             </div>
-                            
+
                             <div class="entry-footer clearfix">
                                 <div class="float-left">
                                     <i class="">Signed Date</i>
                                     <ul class="cats">
                                         <li><a href="#">{{ date('D, d M Y', strtotime($post->signDate)) }}</a></li>
                                     </ul>
-                                    
+
                                     <i class="">Expiry Date</i>
                                     <ul class="tags">
                                         <li><a href="#">{{ date('D, d M Y', strtotime($post->ExpDate)) }}</a></li>
-                                        
+
                                     </ul>
                                 </div>
-                                
-                                
-                                
+
                                 <div class="float-right">
-                                    <a href="{{ url('/download', $post->file) }}" class="btn btn-success">Download File</a>
+                                    <a href="{{ url('/download', $post->file) }}"
+                                        class="get-started-btn scrollto text-white">Download Document</a>
+                                    @if (!Auth::guest())
+
+                                        <a href="{{ route('posts.edit', $post->id) }}"
+                                            class="btn btn-outline-warning">Edit</a>
+
+                                    @endif
                                 </div>
                             </div>
-                            
+
                         </article><!-- End blog entry -->
-
-
                     </div><!-- End blog entries list -->
 
                 </div>

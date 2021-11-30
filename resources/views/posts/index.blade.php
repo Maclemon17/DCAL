@@ -5,9 +5,7 @@
 @endsection
 
 @section('content')
-   
-    <main id="main">
-
+    <div id="main">
         <!-- ======= Breadcrumbs ======= -->
         <section class="breadcrumbs">
             <div class="container">
@@ -21,65 +19,72 @@
             </div>
         </section><!-- End Breadcrumbs -->
 
-        <!-- ======= Blog Section ======= -->
         <section id="blog" class="blog">
-            <div class="container" data-aos="fade-up">
-               
-                <div class="row">
 
-                    <div class=" col-md- entries">
+            <div class="row">
+                <div class="container">
 
-                        @if ($message = Session::get('success'))
-                            <div class="alert alert-success">
-                                <p>{{ $message }}</p>
-                            </div>
-                        @endif
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
 
-                        <article class="entry">
+                    <div class="table-responsive">
 
-                            <table class="table table-striped table-bordered">
-                                <thead class="thead-dark">
-                                    <th>#</th>
-                                    <th>Doc Num</th>
-                                    <th>Organization Name</th>
-                                    <th>Purpose</th>
-                                    <th>Created At</th>
-                                    <th>Doc</th>
-                                    <th>Actions</th>
-                                </thead>
-                                <tbody>
-                                    @foreach ($posts as $post)
-                                        <tr>
-                                            <td> {{ $count++ }} </td>
-                                            <td> {{ $post->docNum }} </td>
-                                            <td> {{ $post->OrgName }} </td>
-                                            <td> {{ strlen($post->keywords) > 10 ? substr_replace($post->keywords, "...", 20): $post->keywords }} </td>
-                                            <td> {{ date('M,j Y', strtotime($post->created_at)) }} </td>
-                                            <td>{{ $post->file }}</td>
-                                            <td class="d-flex ">
-                                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-outline-primary">View</a>
-                                                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-outline-warning">Edit</a>
-                                                @method('POST')
-                                                <a href="{{ route('posts.destroy', $post->id) }}" type="submit" class="btn btn-sm btn-outline-danger">Delete</a>
-                                                
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            <div class="blog-pagination">
-                                <div class="d-flex justify-content-center">
-                                    {{ $posts->links() }}
-                                </div>
-                            </div>
-                        </article><!-- End blog entry -->
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <th>#</th>
+                                <th>Doc Num</th>
+                                <th>Organization Name</th>
+                                <th>Purpose</th>
+                                <th>Created</th>
+                                <th>Doc</th>
+                                <th>Actions</th>
+                            </thead>
+                            <tbody>
+                                @foreach ($posts as $post)
+                                    <tr>
+                                        <td> {{ $count++ }} </td>
+                                        <td> {{ $post->docNum }} </td>
+                                        <td> {{ $post->OrgName }} </td>
+                                        <td> {{ strlen($post->keywords) > 10 ? substr_replace($post->keywords, '...', 20) : $post->keywords }}
+                                        </td>
+                                        <td> {{ date('M,j Y', strtotime($post->created_at)) }} </td>
+                                        <td>{{ $post->file }}</td>
+                                        <td class="d-flex justify-content-around">
+                                            <div>
+                                                <a href="{{ route('mou.single', $post->id) }}"
+                                                    class="btn btn-sm btn-outline-primary">View</a>
+                                            </div>
+
+                                            <div>
+                                                <a href="{{ route('posts.edit', $post->id) }}"
+                                                    class="btn btn-sm btn-outline-warning">Edit</a>
+                                            </div>
+
+                                            <div>
+                                                <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                                                    {{-- <input type="search" name="search" placeholder="Search MoU by Org name"> --}}
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </form>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    {{-- Pagination Links --}}
+                    <div class="d-flex justify-content-center text-danger">
+                        {{ $posts->links() }}
                     </div>
                 </div>
             </div>
         </section>
-        {{-- <div class="d-flex justify-content-center">
-            {{ $posts->links() }}
-        </div> --}}
-    </main>
-
+    </div>
 @endsection

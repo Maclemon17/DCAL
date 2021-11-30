@@ -1,5 +1,12 @@
 @extends('layouts.main')
 
+@section('navBtn')
+    @if (!Auth::guest())
+        <a href="{{ url('/posts') }}" class="get-started-btn scrollto">Manage Posts</a>
+
+    @endif
+@endsection
+
 @section('content')
     <section id="hero" class="d-flex align-items-center">
         <div class="container-fluid" data-aos="zoom-out" data-aos-delay="100">

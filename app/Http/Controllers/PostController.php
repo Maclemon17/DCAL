@@ -95,10 +95,10 @@ class PostController extends Controller
     public function show($id)
     {
         // get the post with id
-        $post = Post::find($id);
+        // $post = Post::find($id);
     
         
-        return view('posts.show')->withPost($post);
+        // return view('posts.show')->withPost($post);
     }
 
     /**
@@ -164,9 +164,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-
         $post->delete();
 
-        return redirect()->route('posts.index', $post->id)->with('success', 'Mou Deleted');
+        return redirect()->back()->with('success', 'Mou Deleted');
     }
 }
