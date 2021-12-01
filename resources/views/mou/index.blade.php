@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'MoU')
+
 @section('navBtn')
     @if (!Auth::guest())
         <a href="{{ url('/posts') }}" class="get-started-btn scrollto">Manage Posts</a>

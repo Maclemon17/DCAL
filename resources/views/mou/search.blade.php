@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Search')
+
 @section('navBtn')
     <a href="{{ route('mou')}}" class="get-started-btn scrollto">Back</a>
 @endsection

@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Update Posts')
+
 @section('navBtn')
     <a href="{{ route('posts.index') }}" class="get-started-btn scrollto">Back</a>
 @endsection

@@ -25,7 +25,6 @@ Route::get('memo', 'MoUController@getIndex')->name('mou');
 Route::get('memo/{id}', 'MoUController@getSingle')->name('mou.single')/*-> where('docNum', '[\w\d\-\_]+') */;
 Route::get('search', 'MoUController@search')->name('search');
 Route::get('download/{file}', 'MoUController@download')->name('download');
-Route::view('try', 'mou.search');
 
 Auth::routes();
 

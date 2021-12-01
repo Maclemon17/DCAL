@@ -4,7 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="text-center mt-5 mb-5">
+                <h1 style="font-size: 80px; font-family: 'MonteCarlo', cursive;" class="text-black">DC<span class="text-danger">AL</span></h1>
+            </div>
+            <div class="card mt-5">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">

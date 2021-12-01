@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'All Posts')
+
 @section('navBtn')
     <a href="{{ route('posts.create') }}" class="get-started-btn scrollto">Create new post</a>
 @endsection

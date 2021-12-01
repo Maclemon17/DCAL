@@ -8,8 +8,8 @@
 
                 <nav class="nav-menu d-none d-lg-block">
                     <ul>
-                        <li class="active"><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('mou') }}">M0U</a></li>
+                        <li class="{{ Request::is('/') ? "active" : "" }}"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="{{ Request::is('memo*') ? "active" : "" }}"><a href="{{ route('mou') }}">M0U</a></li>
                         @guest
                             <li class="drop-down"><a href="#"><i class="icofont-ui-user icofont-lg"></i></a>
                                 <ul>
@@ -19,8 +19,8 @@
                                 </ul>
                             </li>
                         @else
-                            <li class="drop-down dropdown">
-                                <a id="navbarDropdown" class="" href="#" role="button" data-toggle="dropdown"
+                            <li class="drop-down dropdown {{ Request::is('posts*') ? "active" : "" }}" >
+                                <a id="navbarDropdown"  href="#" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false" v-pre> <i class="icofont-ui-user icofont-lg"></i>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
