@@ -57,6 +57,7 @@
                                         <a href="{{ route('mou.single', $post->id) }}">View</a>
                                     </div>
                                 </div>
+                                <hr>
                             @endforeach
 
                         @else

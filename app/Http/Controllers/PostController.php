@@ -29,8 +29,7 @@ class PostController extends Controller
         $count = 1;
         // $posts = Post::orderBy('id', 'desc')->paginate('4');
         $posts = Post::latest()->paginate(5);
-        
-        return view('posts.index', compact(['posts', 'count']))->with(request()->input('page'));
+        return view('posts.index', compact(['posts', 'count',]))->with(request()->input('page'));
     }
 
     /**
@@ -72,6 +71,7 @@ class PostController extends Controller
         
         if($request->hasfile('file')) {
             $file = $request->file('file');
+            // $docname = $file->getClientOriginalName();
             $extention = $file->getClientOriginalExtension();
             $filename = time().'.'.$extention;
             $file->move('mou', $filename);
@@ -82,7 +82,7 @@ class PostController extends Controller
         }
         $post->save();
         // Post::create($request->all()); 
-    
+       
         return redirect()->route('posts.index')->with('success', 'Mou added succcefully');
     }
 
@@ -128,7 +128,7 @@ class PostController extends Controller
         $post = Post::find($id);
 
         // Revalidate data 
-        if ($request->input('docNum') == $post->docNum) { //check if the document munber is changed
+        if ($request->input('docNum') == $post->docNum) { //check if the document munber has changed
             $this->validate($request, [
                 'orgName' => 'required',
                 'signDate' => 'required',
@@ -144,12 +144,22 @@ class PostController extends Controller
                 'keywords' => 'required',
             ]);
         }
+
         $post->docNum = $request->docNum;
         $post->orgName = $request->orgName;
         $post->signDate  = $request->signDate;
         $post->ExpDate  = $request->ExpDate;
         $post->keywords  = $request->keywords;
 
+        // 
+        if($request->hasfile('file') /* && $post->file !== $request->file(file)->getOriginalClientName() */)  {
+            $file = $request->file('file');
+            // $docname = $file->getClientOriginalName();
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('mou', $filename);
+            $post->file  = $filename;
+        } 
         $post->save();
     
         return redirect()->route('posts.index', $post->id)->with('success', 'Changes Saved');

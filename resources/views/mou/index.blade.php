@@ -30,14 +30,15 @@
                 <div class="row">
 
                     <div class="col-lg-8 entries">
-                        @if ($post->count() > 0)
+                        @if ($posts->count() > 0)
+
                             @foreach ($posts as $post)
 
                                 <article class="entry">
 
-                                    {{-- <div class="entry-img">
-                                <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                            </div> --}}
+                                        {{-- <div class="entry-img">
+                                    <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
+                                    </div> --}}
 
                                     <h2 class="entry-title">
                                         <a href="#">{{ $post->OrgName }}</a>
@@ -70,17 +71,18 @@
 
 
                                 </article><!-- End blog entry -->
+
                             @endforeach
                         @else()
                             <h2 class="entry-title">No Posts</h2>
                         @endif
+
 
                         <div class="blog-pagination">
                             <ul class="justify-content-center">
                                 {{ $posts->links() }}
                             </ul>
                         </div>
-
                     </div><!-- End blog entries list -->
 
                     <div class="col-lg-4">

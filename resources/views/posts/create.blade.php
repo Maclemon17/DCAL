@@ -26,27 +26,27 @@
                         @csrf
                         <div class="form-group">
                             <label for="docNum">Document Number</label>
-                            <input type="text" name="docNum" id="docNum" class="form-control" placeholder="Serial Number">
+                            <input type="text" name="docNum" id="docNum" class="form-control" placeholder="Serial Number" value="{{ old('docNum') }}">
                         </div>
                         <div class="form-group">
                             <label for="orgName">Name of Orgnisation</label>
-                            <input type="text" name="orgName" id="orgName" class="form-control">
+                            <input type="text" name="orgName" id="orgName" class="form-control" value="{{ old('orgName') }}">
                         </div>
                         <div class="form-group">
                             <label for="signDate">Date Signed</label>
-                            <input type="date" name="signDate" id="signDate" class="form-control">
+                            <input type="date" name="signDate" id="signDate" class="form-control" value="{{ old('signDate') }}">
                         </div>
                         <div class="form-group">
                             <label for="ExpDate">Exp Date</label>
-                            <input type="date" name="ExpDate" id="ExpDate" class="form-control">
+                            <input type="date" name="ExpDate" id="ExpDate" class="form-control" value="{{ old('ExpDate') }}">
                         </div>
                         <div class="form-group">
                             <label for="keywords">Keywords</label>
-                            <textarea name="keywords" id="keywords" class="form-control" placeholder="Purpose of Signing" cols="30" rows="10"></textarea>
+                            <textarea name="keywords" id="keywords" class="form-control" placeholder="Purpose of Signing" cols="30" rows="10">{{ old('keywords') }}</textarea>
                         </div>
                         <div class="form-group mb-5">   
                             <label for="file">Document Attached</label>
-                            <input type="file" name="file" id="file" class="form-control">
+                            <input type="file" name="file" id="file" class="form-control" value="{{ old('file') }}">
                         </div>
                         <input type="submit" value="Add MOU" class="btn btn-outline-danger">
                     </form>

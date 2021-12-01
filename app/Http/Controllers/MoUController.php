@@ -35,8 +35,8 @@ class MoUController extends Controller
         return view('mou.search', compact('post'));
     }
 
-    public function download(Request $request, $file) {
+    public function download(Request $request, $filename) {
 
-        return response()->download(public_path('mou/'.$file));
+        return response()->download(public_path('mou/'.$filename));
     }
 }
