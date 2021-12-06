@@ -41,12 +41,12 @@
                                 <th>Organization Name</th>
                                 <th>Purpose</th>
                                 <th>Created</th>
-                                <th>Doc</th>
+                                <th>Document</th>
                                 <th>Actions</th>
                             </thead>
                             <tbody>
                                 @foreach ($posts as $post)
-                                    <tr>
+                                    <tr class="{{ $post->ExpDate < getdate() ? "table-danger" : "" }}">
                                         <td> {{ $count++ }} </td>
                                         <td> {{ $post->docNum }} </td>
                                         <td> {{ $post->OrgName }} </td>

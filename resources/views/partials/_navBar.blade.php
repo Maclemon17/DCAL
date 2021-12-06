@@ -9,7 +9,7 @@
                 <nav class="nav-menu d-none d-lg-block">
                     <ul>
                         <li class="{{ Request::is('/') ? "active" : "" }}"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="{{ Request::is('memo*') ? "active" : "" }}"><a href="{{ route('mou') }}">M0U</a></li>
+                        <li class="{{ Request::is('memo*') ? "active" : "" }}"><a href="{{ route('mou') }}">MoU</a></li>
                         @guest
                             <li class="drop-down"><a href="#"><i class="icofont-ui-user icofont-lg"></i></a>
                                 <ul>

@@ -40,8 +40,8 @@
                         <input type="text" name="docNum" id="docNum" class="form-control" placeholder="Serial Number" value="{{ $post->docNum }}">
                     </div>
                     <div class="form-group">
-                        <label for="orgName">Name of Orgnisation</label>
-                        <input type="text" name="orgName" id="orgName" class="form-control" value="{{ $post->OrgName }}">
+                        <label for="OrgName">Name of Orgnisation</label>
+                        <input type="text" name="OrgName" id="OrgName" class="form-control" value="{{ $post->OrgName }}">
                     </div>
                     <div class="form-group">
                         <label for="signDate">Date Signed</label>

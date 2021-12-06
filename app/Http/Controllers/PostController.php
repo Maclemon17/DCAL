@@ -53,7 +53,7 @@ class PostController extends Controller
         // Validate data
         $request->validate([
             'docNum' => 'required|alpha_dash|min:5|max:255|unique:posts,docNum',
-            'orgName' => 'required',
+            'OrgName' => 'required',
             'signDate' => 'required',
             'ExpDate' => 'required',
             'keywords' => 'required',
@@ -64,7 +64,7 @@ class PostController extends Controller
         $post = new Post();
 
         $post->docNum = $request->docNum;
-        $post->orgName = $request->orgName;
+        $post->OrgName = $request->OrgName;
         $post->signDate  = $request->signDate;
         $post->ExpDate  = $request->ExpDate;
         $post->keywords  = $request->keywords;
@@ -130,7 +130,7 @@ class PostController extends Controller
         // Revalidate data 
         if ($request->input('docNum') == $post->docNum) { //check if the document munber has changed
             $this->validate($request, [
-                'orgName' => 'required',
+                'OrgName' => 'required',
                 'signDate' => 'required',
                 'ExpDate' => 'required',
                 'keywords' => 'required',
@@ -138,7 +138,7 @@ class PostController extends Controller
         } else {
             $this->validate($request, [
                 'docNum' => 'required|alpha_dash|min:5|max:255|unique:posts,docNum',
-                'orgName' => 'required',
+                'OrgName' => 'required',
                 'signDate' => 'required',
                 'ExpDate' => 'required',
                 'keywords' => 'required',
@@ -146,7 +146,7 @@ class PostController extends Controller
         }
 
         $post->docNum = $request->docNum;
-        $post->orgName = $request->orgName;
+        $post->OrgName = $request->OrgName;
         $post->signDate  = $request->signDate;
         $post->ExpDate  = $request->ExpDate;
         $post->keywords  = $request->keywords;
