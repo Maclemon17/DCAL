@@ -34,13 +34,24 @@
                             <label for="OrgName">Name of Orgnisation</label>
                             <input type="text" name="OrgName" id="OrgName" class="form-control" value="{{ old('OrgName') }}">
                         </div>
-                        <div class="form-group">
-                            <label for="signDate">Date Signed</label>
-                            <input type="date" name="signDate" id="signDate" class="form-control" value="{{ old('signDate') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="ExpDate">Exp Date</label>
-                            <input type="date" name="ExpDate" id="ExpDate" class="form-control" value="{{ old('ExpDate') }}">
+                        <div class="row">
+
+                            <div class="form-group col">
+                                <label for="signDate">Date Signed</label>
+                                <input type="date" name="signDate" id="signDate" class="form-control" value="{{ old('signDate') }}">
+                            </div>
+                            <div class="form-group col">
+                                <label for="ExpDate">Exp Date</label>
+                                <input type="date" name="ExpDate" id="ExpDate" class="form-control" value="{{ old('ExpDate') }}">
+                            </div>
+                            {{-- <div class="form-group col">
+                                <label for="ExpDate">Visibility</label>
+                                <select name="visible" id="visible" class="form-control">
+                                    <option value="" selected> Choose visiblity</option>
+                                    <option value="0">Public</option>
+                                    <option value="1">Private</option>
+                                </select>
+                            </div> --}}
                         </div>
                         <div class="form-group">
                             <label for="keywords">Keywords</label>

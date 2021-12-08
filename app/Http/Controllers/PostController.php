@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Session;
+use Storage;
 
 class PostController extends Controller
 {
@@ -71,10 +72,11 @@ class PostController extends Controller
         
         if($request->hasfile('file')) {
             $file = $request->file('file');
-            // $docname = $file->getClientOriginalName();
+            $docname = $file->getClientOriginalName();
             $extention = $file->getClientOriginalExtension();
             $filename = time().'.'.$extention;
             $file->move('mou', $filename);
+            $post->docName = $docname;
             $post->file  = $filename;
         } else {
             return $request;
@@ -152,13 +154,19 @@ class PostController extends Controller
         $post->keywords  = $request->keywords;
 
         // 
-        if($request->hasfile('file') /* && $post->file !== $request->file(file)->getOriginalClientName() */)  {
+        if($request->hasfile('file'))  {
+            // Add new file
             $file = $request->file('file');
-            // $docname = $file->getClientOriginalName();
+            $docname = $file->getClientOriginalName();
             $extention = $file->getClientOriginalExtension();
             $filename = time().'.'.$extention;
             $file->move('mou', $filename);
+            $oldFile = $post->file;
+            // Update the database
+            $post->docName = $docname;
             $post->file  = $filename;
+            // Delete old file
+            Storage::delete($oldFile);
         } 
         $post->save();
     
@@ -174,6 +182,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
+        Storage::delete($post->file);
+
         $post->delete();
 
         return redirect()->back()->with('success', 'Mou Deleted');

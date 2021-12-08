@@ -6,12 +6,13 @@
     <body>
         
         @include('partials._navBar')
-        
-        @yield('content')
-        
 
+        @yield('content')
+
+    
         <div id="footer">
-            @include('partials._footer')
+            {{-- @yield('footer') --}}
+            {{-- @include('partials._footer') --}}
         </div>
 
         @include('partials._javascript')

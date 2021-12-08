@@ -1,4 +1,4 @@
-<div class="container d-fld-md-flex justify-content-center py-4" style="position:absolut; bottom: 0;">
+<div class="container d-fld-md-flex justify-content-center py-4" >
     <div class="mr-md-auto text-center text-md-center">
         <div class="copyright">
             &copy; Copyright <strong><span>DCAL</span></strong> {{ date('Y')}} | All Rights Reserved

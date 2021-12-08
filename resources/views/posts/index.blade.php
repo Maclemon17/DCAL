@@ -41,19 +41,19 @@
                                 <th>Organization Name</th>
                                 <th>Purpose</th>
                                 <th>Created</th>
-                                <th>Document</th>
+                                <th>Doc Name</th>
                                 <th>Actions</th>
                             </thead>
                             <tbody>
                                 @foreach ($posts as $post)
-                                    <tr class="{{ $post->ExpDate < getdate() ? "table-danger" : "" }}">
+                                    <tr class="">
                                         <td> {{ $count++ }} </td>
                                         <td> {{ $post->docNum }} </td>
                                         <td> {{ $post->OrgName }} </td>
                                         <td> {{ strlen($post->keywords) > 10 ? substr_replace($post->keywords, '...', 20) : $post->keywords }}
                                         </td>
                                         <td> {{ date('M,j Y', strtotime($post->created_at)) }} </td>
-                                        <td>{{ $post->file }}</td>
+                                        <td>{{ $post->docName }}</td>
                                         <td class="d-flex justify-content-around">
                                             <div>
                                                 <a href="{{ route('mou.single', $post->id) }}"
@@ -71,7 +71,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit"
-                                                        class="btn btn-sm btn-outline-danger">Delete</button>
+                                                        class="btn btn-sm btn-outline-danger" onclick=" return confirm('Are you sure?')">Delete</button>
                                                 </form>
                                             </div>
 

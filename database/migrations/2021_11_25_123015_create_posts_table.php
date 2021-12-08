@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->date('ExpDate');
             $table->text('keywords');
             $table->string('file');
+            $table->string('docName');
             $table->timestamps();
         });
     }

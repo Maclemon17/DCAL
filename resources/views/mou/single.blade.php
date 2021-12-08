@@ -43,7 +43,7 @@
                                     </li>
 
                                     <li class="d-flex align-items-center"><i class="text-danger">MoU Document:</i> <a
-                                            href="#">{{ $post->file }}</a>
+                                            href="#">{{ $post->docName }}</a>
                                     </li>
                                 </ul>
                             </div>

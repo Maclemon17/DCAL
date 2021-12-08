@@ -43,7 +43,7 @@
                                     </div> --}}
 
                                     <h2 class="entry-title">
-                                        <a href="#">{{ $post->Orgname }}</a>
+                                        <a href="#">{{ $post->OrgName }}</a>
                                     </h2>
 
                                     <div class="entry-meta">
