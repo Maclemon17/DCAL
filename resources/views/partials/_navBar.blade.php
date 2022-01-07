@@ -24,8 +24,11 @@
                                     aria-haspopup="true" aria-expanded="false" v-pre> <i class="icofont-ui-user icofont-lg"></i>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
+                                
+                                {{-- <li class="dropdown-item">
+                                </li> --}}
                                 <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                                    <a href="{{ url('/posts') }}" class="dropdown-item">Manage Post</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                  document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -37,6 +40,7 @@
                                     </form>
                                 </div>
                             </li>
+                            
                         @endguest
                     </ul>
                 </nav><!-- .nav-menu -->

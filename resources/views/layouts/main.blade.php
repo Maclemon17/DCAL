@@ -11,8 +11,10 @@
 
     
         <div id="footer">
-            {{-- @yield('footer') --}}
-            {{-- @include('partials._footer') --}}
+            @if (Request::is('/'))
+                @include('partials._footer')
+            
+            @endif
         </div>
 
         @include('partials._javascript')

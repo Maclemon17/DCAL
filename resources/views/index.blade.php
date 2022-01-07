@@ -16,10 +16,8 @@
                     <div class="row">
                         <div class="col-xl-7">
                             <h1>Directorate for Collaborations, Affilations and Linkages</h1>
-                            {{-- <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p> --}}
                             <h2><span class="typed" data-typed-items="Memorandum of Understanding"></h2>
-                            {{-- <h2>Memorandum of Understanding</h2> --}}
-                            <a href="{{ route('mou') }}" class="btn-get-started scrollto">Get Started</a>
+                            <a href="{{ route('mou') }}" class="btn-get-started scrollto">Goto MoU</a>
                         </div>
                     </div>
                 </div>

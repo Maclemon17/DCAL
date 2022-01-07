@@ -35,20 +35,20 @@
                             @foreach ($post as $post)
                                 
                                 <h2 class="entry-title">
-                                    <a href="blog-single.html">{{ $post->OrgName }}</a>
+                                    <a href="#">{{ $post->OrgName }}</a>
                                 </h2>
 
                                 <div class="entry-meta">
                                     <ul>
                                         <li class="d-flex align-items-center"><i class="icofont-stamp text-danger"></i> <a
-                                                href="blog-single.html">{{ $post->signDate }}</a>
+                                                href="#">{{ $post->signDate }}</a>
                                         </li>
                                         <li class="d-flex align-items-center"><i class="icofont-clock-time text-danger"></i> <a
-                                                href="blog-single.html"><time
+                                                href="#"><time
                                                     datetime="2020-01-01">{{ $post->ExpDate }}</time></a>
                                         </li>
                                         <li class="d-flex align-items-center"><i class="icofont-attachment text-danger"></i> <a
-                                                href="blog-single.html">{{ $post->docNum }}</a>
+                                                href="#">{{ $post->docNum }}</a>
                                         </li>
                                     </ul>
                                 </div>

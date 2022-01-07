@@ -33,7 +33,7 @@
                         <article class="entry">
 
                             <h2 class="entry-title">
-                                <a href="blog-single.html">{{ $post->OrgName }}</a>
+                                <a href="#" onclick="event.preventDefault()">{{ $post->OrgName }}</a>
                             </h2>
 
                             <div class="entry-meta">
